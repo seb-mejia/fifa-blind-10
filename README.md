@@ -22,8 +22,8 @@ This project was inspired by Austin Krance's "FIFA Blind 10" game series on TikT
 
 ## Built With
 
-* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png" alt="Python" width="50" url=[Python-url]/>
-* <img src="https://miro.medium.com/v2/resize:fit:1400/1*tecoiavyUYc6GKveN7wQYg.png" alt="BeautifulSoup" width="50" url="[BeautifulSoup-url]/> 
+* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png" alt="Python" width="50"/>
+* <img src="https://miro.medium.com/v2/resize:fit:1400/1*tecoiavyUYc6GKveN7wQYg.png" alt="BeautifulSoup" width="50" url=[BeautifulSoup-url]/> 
 * [![BeautifulSoup][BeautifulSoup-logo]][BeautifulSoup-url]
 
 ## Getting Started
@@ -33,6 +33,6 @@ This is a terminal-based game and may be played locally. An Internet connection 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [Python-logo]: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png
-[Python-url]: https://www.python.org/
+[Python-url]: https://www.python.org
 [BeautifulSoup-logo]: https://miro.medium.com/v2/resize:fit:1400/1*tecoiavyUYc6GKveN7wQYg.png
 [BeautifulSoup-url]: https://www.crummy.com/software/BeautifulSoup/#Download
