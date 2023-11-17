@@ -8,7 +8,7 @@
 
 Example of a winning list as of November 15, 2023:
 
-\[:colombia: (17), 🇵🇦 (44), 🇿🇦 (64), 🇭🇳 (78), 🇹🇬 (119), 🇨🇾 (124), 🇳🇪 (129), 🇰🇭 (178), 🇱🇦 (188), 🇸🇲 (207)]
+\[🇨🇴 (17), 🇵🇦 (44), 🇿🇦 (64), 🇭🇳 (78), 🇹🇬 (119), 🇨🇾 (124), 🇳🇪 (129), 🇰🇭 (178), 🇱🇦 (188), 🇸🇲 (207)]
 
 ## Features
 
@@ -22,8 +22,8 @@ This project was inspired by Austin Krance's "FIFA Blind 10" game series on TikT
 
 ## Built With
 
-* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png" alt="Python" width="50"/>
-* <img src="https://miro.medium.com/v2/resize:fit:1400/1*tecoiavyUYc6GKveN7wQYg.png" alt="BeautifulSoup" width="50" url=[BeautifulSoup-url]/> 
+* [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png" alt="Python" width="50"/](https://www.python.org)
+* <img src="https://miro.medium.com/v2/resize:fit:1400/1*tecoiavyUYc6GKveN7wQYg.png" alt="BeautifulSoup" width="150" url=[BeautifulSoup-url]/> 
 * [![BeautifulSoup][BeautifulSoup-logo]][BeautifulSoup-url]
 
 ## Getting Started
