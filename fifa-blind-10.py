@@ -12,7 +12,6 @@ def scrape(URL, rankings):
         country_name = span.text.strip('"')
         rankings[country_name] = country_rank
         country_rank += 1
-    print(len(rankings))
 
 def win(choices):
     for i in range(9):
@@ -38,15 +37,14 @@ def win(choices):
     return True
 
 def main():
-    # FIFA Men's World Ranking as of 21 September 2023.
+    # As of 23 January 2024, this looks like it's still up to date.
     URL = "https://en.wikipedia.org/wiki/Module:SportsRankings/data/FIFA_World_Rankings"
     rankings = dict()
     scrape(URL, rankings)
 
     choices = ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"]
 
-    print("Credits to Austin Krance on TikTok for the game idea! You will be given 10 countries, try to rank them the best you can. If you want to end the game, enter \"exit\" or \"quit\"")
-    print()
+    print("Credits to Austin Krance on TikTok for the game idea! You will be given 10 countries, try to rank them the best you can. If you want to end the game, enter \"exit\" or \"quit\"\n")
 
     hints = False
     hint_toggle = input("Press H if you want to play with hints. Otherwise, press anything else.\n")
@@ -87,21 +85,24 @@ def main():
             if choice.isdigit():
                 if (int(choice) > 10):
                     print("Your number is too high! Pick a number from 1 to 10.")
+                elif (int(choice) == 0):
+                    print("Your number is too low! Pick a number from 1 to 10.")
                 elif (choices[int(choice) - 1] != 'X'):
                     print("You already picked this slot!")
             else:
-                if (choice.lower() == "quit" or choice.lower() == "exit"):
-                    print("Better luck next time.")
+                if (choice == ""):
+                    print("Please provide an input!")
+                elif (choice.lower() == "quit" or choice.lower() == "exit" or choice.lower() == "stop"):
+                    print("Better luck next time, feel free to try again!")
                     exit()
-                print("Invalid input! Pick a number from 1 to 10.")           
+                elif (choice[0] == "-" and choice[1:].isdigit()):
+                    print("Your choice is too low! Pick a number from 1 to 10.")
+                else:
+                    print("Invalid input! Pick a number from 1 to 10.")           
         choices[int(choice) - 1] = random_country + (" (") + str(random_rank) + (')')
     
-    # Print final results
-    print()
-    print(choices)
-    print()
+    print("\n", choices, "\n")
 
-    # Check to see if you won
     if win(choices):
         print("You won! Great job!")
 
