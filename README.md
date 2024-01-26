@@ -1,20 +1,24 @@
 ## Rules
 
-* The objective is to have a sorted list by FIFA rankings in ascending order.
-* You are given an empty list with ten slots.
-* There are ten turns. For each turn, you will be randomly assigned a country to place on the list.
+* The objective is to have a sorted board by FIFA rankings in ascending order.
+* You are given an empty board with ten slots.
+* There are ten turns. For each turn, you will be randomly assigned a country to place on the board.
 * You will not be given the same country more than once.
-* You cannot delete countries from the list, nor may you overwrite them.
+* You cannot delete countries from the board, nor may you overwrite them.
 
-Example of a winning list as of November 15, 2023:
+Example of a winning board as of November 15, 2023:
 
 \[🇨🇴 (17), 🇵🇦 (44), 🇿🇦 (64), 🇭🇳 (78), 🇹🇬 (119), 🇨🇾 (124), 🇳🇪 (129), 🇰🇭 (178), 🇱🇦 (188), 🇸🇲 (207)]
 
 ## Features
 
 * If you press "H" before starting this game, you will receive hints on where to rank the country.
-  * These hints are based on the ratio of the country's rank to the total number of countries (207).
-* I might add the option to combine men's rankings and women's rankings, since Austin Krance implemented this feature in his version of the game.
+  * These hints are based on the ratio of the country's rank to the total number of countries (207 for men's, 192 for women's).
+* You can play with men's rankings (M) or women's rankings (W).
+* Various quality of life improvements that the TikTok filter doesn't have: You cannot get repeat countries, rankings are displayed after you put a country on the board, and winning/losing boards are determined for you.
+* I thought about creating a combined rankings gamemode, where each country's ranking can be male or female to create a winning board.
+  * But then I'd have to consider all 10! = 3628800 possible board orderings. And you couldn't see how your board is being evaluated at the moment.
+  * Maybe I attempt to tackle this in the future.
 
 ## Acknowledgements
 
@@ -27,7 +31,7 @@ This project was inspired by Austin Krance's "FIFA Blind 10" game series on TikT
 
 ## Getting Started
 
-This is a terminal-based game and may be played locally. An Internet connection is required since it accesses the latest FIFA World Rankings. This game was tested on Visual Studio Code, and fully supports this IDE.
+This is a terminal-based game and may be played locally. The game was designed and tested on Visual Studio Code, meaning that the game can be reliably run on VS Code. Be sure you have installed Beautiful Soup in addition to Python. An Internet connection is required since this game accesses the latest FIFA World Rankings. 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
