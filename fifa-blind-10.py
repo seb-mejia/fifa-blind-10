@@ -2,15 +2,26 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import random
 
-def scrape(URL, rankings):
+def womens_scrape(URL, womens_rankings):
     soup = BeautifulSoup(urlopen(URL), "html.parser")
-    span_elements = soup.find_all('span', class_='s2')
+    span_elements = soup.find_all("span", class_="s2")
+    country_rank = 1
+
+    # Only items 5 through 197 are countries
+    for span in span_elements[5:197]:
+        country_name = span.text.strip('"')
+        womens_rankings[country_name] = country_rank
+        country_rank += 1
+
+def mens_scrape(URL, mens_rankings):
+    soup = BeautifulSoup(urlopen(URL), "html.parser")
+    span_elements = soup.find_all("span", class_="s2")
     country_rank = 1
 
     # Only items 8 through 215 are countries
     for span in span_elements[7:214]:
         country_name = span.text.strip('"')
-        rankings[country_name] = country_rank
+        mens_rankings[country_name] = country_rank
         country_rank += 1
 
 def win(choices):
@@ -37,21 +48,50 @@ def win(choices):
     return True
 
 def main():
-    # As of 23 January 2024, this looks like it's still up to date.
-    URL = "https://en.wikipedia.org/wiki/Module:SportsRankings/data/FIFA_World_Rankings"
-    rankings = dict()
-    scrape(URL, rankings)
+    # As of 25 January 2024, this looks like it's still up to date.
+    mens_URL = "https://en.wikipedia.org/wiki/Module:SportsRankings/data/FIFA_World_Rankings"
+    mens_rankings = dict()
+    mens_scrape(mens_URL, mens_rankings)
 
-    choices = ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"]
+    womens_URL = "https://en.wikipedia.org/wiki/Module:SportsRankings/data/FIFA_Women%27s_World_Rankings"
+    womens_rankings = dict()
+    womens_scrape(womens_URL, womens_rankings)
+
+    # You'd have to check all 10! board combinations for combined. Maybe let's not.
+    '''
+    combined_rankings = dict()
+
+    for country in set(mens_rankings.keys()).union(set(womens_rankings.keys())):
+        # If the country isn't available, set its rank to the maximum possible value
+        mens_rank = mens_rankings.get(country, float("inf"))
+        womens_rank = womens_rankings.get(country, float("inf"))
+
+        combined_rankings[country] = min(mens_rank, womens_rank)
+    '''
 
     print("Credits to Austin Krance on TikTok for the game idea! You will be given 10 countries, try to rank them the best you can. If you want to end the game, enter \"exit\" or \"quit\"\n")
+
+    # dummy default invalid mode
+    mode = "E"
+    print("Press M to play with men's rankings, or W to play with women's rankings.")
+    while (mode not in ["M", "W"]):
+         mode = input()
+         if (mode.lower not in ["m", "w", "M", "W"]):
+            print("Press M to play with men's rankings, or W to play with women's rankings.")
+
+    if (mode in ["m", "M"]):
+        rankings = mens_rankings
+    elif (mode in ["w", "W"]):
+        rankings = womens_rankings
 
     hints = False
     hint_toggle = input("Press H if you want to play with hints. Otherwise, press anything else.\n")
 
-    if (hint_toggle == "H"):
+    if (hint_toggle in ["h", "H"]):
         hints = True
     print()
+
+    choices = ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"]
 
     for i in range(10):
         size = len(rankings)
